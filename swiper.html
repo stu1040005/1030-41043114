@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+        /* 調整左右按鈕的位置 */
+        .swiper-button-next,
+        .swiper-button-prev {
+          bottom: 10px; /* 調整按鈕距離底部的距離 */
+          top: auto; /* 移除預設的 top 定位 */
+        }
+      
+        /* 如果需要，可以調整按鈕的大小和顏色 */
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          font-size: 30px; /* 調整按鈕圖標大小 */
+          color: #333; /* 調整按鈕顏色 */
+        }
+      </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">JS套件介紹</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="aos.html">AOS動畫</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="text-to-speech.html">文字轉語音</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="lottie.html">Lottie 動畫</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="chart.html">Chart.js 圖表</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="lazy-loading.html">Lazy-loading 懶加載</a>
+                <li class="nav-item">
+                  <a class="nav-link" href="moment.html">moment</a>
+              <li class="nav-item">
+                  <a class="nav-link" href="swiper.html">swiper</a>
+              <li class="nav-item">
+                  <a class="nav-link" href="amchart.html">amchart</a>
+              <li class="nav-item">
+                  <a class="nav-link" href="flatpickr.html">flatpickr</a>
+              <li class="nav-item">
+                  <a class="nav-link" href="fullcalender.html">fullcalender</a>
+              </li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container mt-3">
+        <h2>swiper展示</h2>
+        <p><a href="https://swiperjs.com/" target="_blank">swiper.js 官網</a></p>
+
+        <h3>範例程式碼</h3>
+        <pre><code>
+            &lt;!-- swiper.js --&gt;
+            &lt;script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"&gt;&lt;/script&gt;
+            &lt;script&gt;
+            document.addEventListener('DOMContentLoaded', function () {
+                const swiper = new Swiper('.swiper-container', {
+                  loop: true,
+                  autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  },
+                  pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                  },
+                  navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                  },
+                  effect: 'slide',
+                  speed: 800,
+                });
+              });
+            &lt;/script&gt;
+            </code></pre>
+            
+
+        <h3>效果展示</h3>
+        <div class="swiper-container" style="width:80%; height: 300px; margin: auto;">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" style="background-color: lightcoral;">Slide 1</div>
+              <div class="swiper-slide" style="background-color: lightseagreen;">Slide 2</div>
+              <div class="swiper-slide" style="background-color: lightskyblue;">Slide 3</div>
+              <div class="swiper-slide" style="background-color: lightpink;">Slide 4</div>
+            </div>
+        
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+    </div>   
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        effect: 'slide',
+        speed: 800,
+      });
+    });
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>

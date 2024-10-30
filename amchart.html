@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amchart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 圖表容器的大小 */
+        #chartdiv {
+          width: 50%;
+          height: 300px;
+          margin: auto;
+        }
+      </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">JS套件介紹</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="aos.html">AOS動畫</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="text-to-speech.html">文字轉語音</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="lottie.html">Lottie 動畫</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="chart.html">Chart.js 圖表</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="lazy-loading.html">Lazy-loading 懶加載</a>
+                <li class="nav-item">
+                  <a class="nav-link" href="moment.html">moment</a>
+              <li class="nav-item">
+                  <a class="nav-link" href="swiper.html">swiper</a>
+              <li class="nav-item">
+                  <a class="nav-link" href="amchart.html">amchart</a>
+              <li class="nav-item">
+                  <a class="nav-link" href="flatpickr.html">flatpickr</a>
+              <li class="nav-item">
+                  <a class="nav-link" href="fullcalender.html">fullcalender</a>
+              </li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container mt-3">
+        <h2>圖表展示</h2>
+        <p><a href="https://www.amcharts.com/" target="_blank">amchart.js 官網</a></p>
+
+        <h3>範例程式碼</h3>
+        <pre><code>
+            &lt;!-- amchart.js --&gt;
+            &lt;script src="https://cdn.amcharts.com/lib/5/index.js"&gt;&lt;/script&gt;
+            &lt;script src="https://cdn.amcharts.com/lib/5/xy.js"&gt;&lt;/script&gt;
+            &lt;script src="https://cdn.amcharts.com/lib/5/themes/Animated.js&gt;&lt;/script&gt;
+            &lt;script&gt;
+            // 等待 DOM 完成載入
+            am5.ready(function () {
+              // 建立 amCharts 根元素
+              let root = am5.Root.new("chartdiv");
+        
+              // 套用動畫主題 (可選)
+              root.setThemes([am5themes_Animated.new(root)]);
+        
+              // 建立 XY 圖表
+              let chart = root.container.children.push(
+                am5xy.XYChart.new(root, {
+                  panX: true,
+                  panY: true,
+                  wheelX: "panX",
+                  wheelY: "zoomX",
+                  layout: root.verticalLayout
+                })
+              );
+        
+              // 建立 X 軸 (類別軸)
+              let xAxis = chart.xAxes.push(
+                am5xy.CategoryAxis.new(root, {
+                  renderer: am5xy.AxisRendererX.new(root, {}),
+                  categoryField: "category"
+                })
+              );
+        
+              // 建立 Y 軸 (數值軸)
+              let yAxis = chart.yAxes.push(
+                am5xy.ValueAxis.new(root, {
+                  renderer: am5xy.AxisRendererY.new(root, {})
+                })
+              );
+        
+              // 建立序列 (Series)
+              let series = chart.series.push(
+                am5xy.ColumnSeries.new(root, {
+                  name: "Sales",
+                  xAxis: xAxis,
+                  yAxis: yAxis,
+                  valueYField: "value",
+                  categoryXField: "category"
+                })
+              );
+        
+              // 加入資料
+              series.data.setAll([
+                { category: "Apple", value: 120 },
+                { category: "Orange", value: 90 },
+                { category: "Banana", value: 85 },
+                { category: "Grapes", value: 70 }
+              ]);
+        
+              // 加入 X 軸資料
+              xAxis.data.setAll([
+                { category: "Apple" },
+                { category: "Orange" },
+                { category: "Banana" },
+                { category: "Grapes" }
+              ]);
+        
+              // 加入動畫效果
+              series.appear(1000);
+              chart.appear(1000, 100);
+            });
+            &lt;/script&gt;
+            </code></pre>
+            
+
+        <h3>效果展示</h3>
+        <div id="chartdiv"></div>
+
+    </div>
+
+
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  
+    <script>
+      // 等待 DOM 完成載入
+      am5.ready(function () {
+        // 建立 amCharts 根元素
+        let root = am5.Root.new("chartdiv");
+  
+        // 套用動畫主題 (可選)
+        root.setThemes([am5themes_Animated.new(root)]);
+  
+        // 建立 XY 圖表
+        let chart = root.container.children.push(
+          am5xy.XYChart.new(root, {
+            panX: true,
+            panY: true,
+            wheelX: "panX",
+            wheelY: "zoomX",
+            layout: root.verticalLayout
+          })
+        );
+  
+        // 建立 X 軸 (類別軸)
+        let xAxis = chart.xAxes.push(
+          am5xy.CategoryAxis.new(root, {
+            renderer: am5xy.AxisRendererX.new(root, {}),
+            categoryField: "category"
+          })
+        );
+  
+        // 建立 Y 軸 (數值軸)
+        let yAxis = chart.yAxes.push(
+          am5xy.ValueAxis.new(root, {
+            renderer: am5xy.AxisRendererY.new(root, {})
+          })
+        );
+  
+        // 建立序列 (Series)
+        let series = chart.series.push(
+          am5xy.ColumnSeries.new(root, {
+            name: "Sales",
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: "value",
+            categoryXField: "category"
+          })
+        );
+  
+        // 加入資料
+        series.data.setAll([
+          { category: "Apple", value: 120 },
+          { category: "Orange", value: 90 },
+          { category: "Banana", value: 85 },
+          { category: "Grapes", value: 70 }
+        ]);
+  
+        // 加入 X 軸資料
+        xAxis.data.setAll([
+          { category: "Apple" },
+          { category: "Orange" },
+          { category: "Banana" },
+          { category: "Grapes" }
+        ]);
+  
+        // 加入動畫效果
+        series.appear(1000);
+        chart.appear(1000, 100);
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
